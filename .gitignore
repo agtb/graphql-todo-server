@@ -1,0 +1,8 @@
+# Config
+.env*.local
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
