@@ -20,11 +20,6 @@ const apolloServer = new ApolloServer({
 
 await apolloServer.start()
 
-// TODO remove test route only
-app.get("/", (req, res) => {
-  res.send("Hello, world!") // TODO remove
-})
-
 app.use(
   "/" + EXPRESS_APOLLO, // Apollo sandbox
   cors(),
