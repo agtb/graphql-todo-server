@@ -15,7 +15,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    addTodo: async (_, { text }) => {
+    createTodo: async (_, { text }) => {
       const todo = new Todo({ text, completed: false })
       await todo.save()
       return todo
