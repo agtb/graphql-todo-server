@@ -15,9 +15,11 @@
     "nodemon": "^3.1.7"
   },
   "scripts": {
+    "dev": "dotenvx run -f .env.local -f .env -- nodemon src/index.js",
     "lint": "yarn prettylint .",
     "start": "node src/index.js",
-    "dev": "dotenvx run -f .env.local -f .env -- nodemon src/index.js"
+    "test": "node --experimental-vm-modules --no-warnings=ExperimentalWarning $(yarn bin jest) --verbose",
+    "test:ci": "node --experimental-vm-modules --no-warnings=ExperimentalWarning $(yarn bin jest) --collectCoverage --coverageDirectory=\"./coverage\" --ci --reporters=default --reporters=jest-junit --watchAll=false"
   },
   "packageManager": "yarn@4.5.0",
   "devDependencies": {
