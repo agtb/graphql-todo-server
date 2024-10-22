@@ -3,7 +3,7 @@ import Todo from "../db/models/todo.js"
 const resolvers = {
   Query: {
     // Test query
-    hello: () => "Hello, world!",
+    hello: (_, { name }) => `Hello, ${name}!`,
     todos: async () => {
       try {
         const todos = await Todo.find()

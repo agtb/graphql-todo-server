@@ -25,7 +25,7 @@ todos.find()
 const typeDefs = gql`
   # Test query
   type Query {
-    hello: String
+    hello(name: String): String!
   }
   type Todo {
     id: ID!
