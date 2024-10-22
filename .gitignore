@@ -6,3 +6,6 @@
 !.yarn/releases
 !.yarn/plugins
 .pnp.*
+
+# Tests
+coverage/*
