@@ -1,6 +1,4 @@
-import Todo from "../db/models/todo.js"
-
-const resolvers = {
+export default (Todo) => ({
   Query: {
     // Test query
     hello: (_, { name }) => `Hello, ${name}!`,
@@ -27,6 +25,4 @@ const resolvers = {
       return Todo.findByIdAndRemove(id)
     },
   },
-}
-
-export default resolvers
+})

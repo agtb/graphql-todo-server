@@ -2,8 +2,8 @@ import gql from "graphql-tag"
 
 /*
 # Add Variable
-mutation AddTodo($text: String!) {
-  addTodo(text: $text) {
+mutation CreateTodo($text: String!) {
+  createTodo(text: $text) {
     text
   }
 }
