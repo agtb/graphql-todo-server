@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Resolvers return correct data for mutations. Mutation: createTodo 1`] = `
+{
+  "completed": false,
+  "text": "Create a todo. Make it so!",
+}
+`;
+
+exports[`Resolvers return correct data for mutations. Mutation: deleteTodo 1`] = `
+{
+  "completed": false,
+  "text": "Oh no! I have been deleted! Anyway...",
+}
+`;
+
+exports[`Resolvers return correct data for mutations. Mutation: updateTodo change text of todo 1`] = `
+{
+  "completed": true,
+  "text": "Update the text of this todo.",
+}
+`;
+
+exports[`Resolvers return correct data for mutations. Mutation: updateTodo complete todo 1`] = `
+{
+  "completed": true,
+  "text": "Text has not been changed",
+}
+`;
+
+exports[`Resolvers return correct data for mutations. Mutation: updateTodo uncomplete todo 1`] = `
+{
+  "completed": false,
+  "text": "Text has not been changed",
+}
+`;
+
+exports[`Resolvers return correct data for queries. Query: Todos 1`] = `
+[
+  {
+    "completed": true,
+    "text": "Add TODO to do the do.",
+  },
+  {
+    "completed": false,
+    "text": "Remove TODON'Ts.",
+  },
+  {
+    "completed": false,
+    "text": "Reticulate the splines...",
+  },
+]
+`;
+
+exports[`Resolvers return correct data for queries. Query: Todos with error 1`] = `
+[
+  {
+    "extensions": {
+      "code": "INTERNAL_SERVER_ERROR",
+    },
+    "locations": [
+      {
+        "column": 3,
+        "line": 2,
+      },
+    ],
+    "message": "Cannot read properties of null (reading 'readTodo')",
+    "path": [
+      "todos",
+    ],
+  },
+]
+`;
+
+exports[`Resolvers return correct data for queries. Query: Todos with error 2`] = `null`;
