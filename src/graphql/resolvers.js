@@ -1,10 +1,11 @@
-export default (Todo) => ({
+export default (todoService) => ({
   Query: {
-    // Test query
-    hello: (_, { name }) => `Hello, ${name}!`,
+    hello: (_, { name }) => {
+      return `Hello, ${name}!`
+    },
     todos: async () => {
       try {
-        const todos = await Todo.find()
+        const todos = await todoService.readTodo()
         return todos
       } catch (err) {
         console.error(err)
@@ -13,16 +14,14 @@ export default (Todo) => ({
     },
   },
   Mutation: {
-    createTodo: async (_, { text }) => {
-      const todo = new Todo({ text, completed: false })
-      await todo.save()
-      return todo
-    },
-    updateTodo: async (_, { id, completed }) => {
-      return Todo.findByIdAndUpdate(id, { completed }, { new: true })
+    createTodo: async (_, { text, completed }) => {
+      return await todoService.createTodo(text, (completed = false))
     },
     deleteTodo: async (_, { id }) => {
-      return Todo.findByIdAndRemove(id)
+      return await todoService.deleteTodo(id)
+    },
+    updateTodo: async (_, { id, text, completed }) => {
+      return await todoService.updateTodo(id, text, completed)
     },
   },
 })

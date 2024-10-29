@@ -5,9 +5,10 @@ import express from "express"
 
 import { EXPRESS_HOST, EXPRESS_PORT, EXPRESS_APOLLO } from "./config/index.js"
 
-import resolvers from "./graphql/resolvers.js"
-import Todo from "./db/models/todo.js"
 import database from "./db/index.js"
+import resolvers from "./graphql/resolvers.js"
+import todoService from "./services/todo-service.js"
+import Todo from "./db/models/todo.js"
 import typeDefs from "./graphql/typedefs.js"
 
 database.connect()
@@ -16,7 +17,8 @@ const app = express()
 
 const apolloServer = new ApolloServer({
   typeDefs,
-  resolvers: resolvers(Todo),
+  // resolvers: resolvers(Todo),
+  resolvers: resolvers(todoService(Todo)),
 })
 
 await apolloServer.start()
